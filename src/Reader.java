@@ -1,30 +1,32 @@
 package src;
 
 import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.util.Map;
-import java.util.ArrayList;
 import java.io.FileReader;
-import java.io.InputStreamReader;
+import java.util.ArrayList;
 
 public class Reader {
-    String valuesString;
-    String line;
-    
-    public String Read() {
-        String MyFile = "src/diccionario.txt";
 
+    public ArrayList<String> Read() throws Exception {
+        String archivo = "src/diccionario.txt";
+        ArrayList<String> elementos = new ArrayList<String>();
         try {
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(MyFile), "UTF-8"));
-            while((line = bufferedReader.readLine()) != null) {
-                
+            FileReader fr = new FileReader(archivo);
+            BufferedReader br = new BufferedReader(fr);
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                String[] partes = linea.split(",");
+                for (String parte : partes) {
+                    elementos.add(parte);
+                }
             }
+            br.close();
         } catch (Exception e) {
+            e.printStackTrace();
         }
-        
-        
-        
-        
-        return valuesString; 
+        System.out.println(elementos);
+
+        return elementos;
     }
 }
+
+
