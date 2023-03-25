@@ -1,4 +1,5 @@
-package src;
+package BinaryTree;
+
 /**
 * @author MAAG
 *
@@ -89,8 +90,4 @@ public class TreeNode<K, V> {
    public void setParent(TreeNode<K, V> parent) {
        this.parent = parent;
    }
-   
-   
-} xd {
-    
 }

@@ -1,8 +1,6 @@
-import java.util.Comparator;
+package BinaryTree;
 
-/**
- * 
- */
+import java.util.Comparator;
 
 /**
  * @author MAAG
