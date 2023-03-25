@@ -3,41 +3,41 @@ dog,perro,chien
 homework,tarea,devoirs
 woman,mujer,femme
 town,pueblo,ville
-yes,si,Oui
-Hello, Hola, Bonjour
-Goodbye, Adiós, Au revoir
-Thank you, Gracias, Merci
-No, No, Non
-Please, Por favor, S'il vous plaît
-Sorry, Lo siento, Pardon
-Love, Amor, Amour
-Friend, Amigo, Ami
-Family, Familia, Famille
-Home, Casa, Maison
-Food, Comida, Nourriture
-Water, Agua, Eau
-Book, Libro, Livre
-Music, Música, Musique
-Time, Tiempo, Temps
-Money, Dinero, Argent
-Work, Trabajo, Travail
-Travel, Viajar, Voyager
-Education, Educación, Éducation
-Health, Salud, Santé
-Happiness, Felicidad, Bonheur
-Peace, Paz, Paix
-Freedom, Libertad, Liberté
-Justice, Justicia, Justice
-Democracy, Democracia, Démocratie
-Climate, Clima, Climat
-Technology, Tecnología, Technologie
-Nature, Naturaleza, Nature
-Art, Arte, Art
-Sport, Deporte, Sport
-Fashion, Moda, Mode
-Culture, Cultura, Culture
-Language, Idioma, Langue
-History, Historia, Histoire
-Science, Ciencia, Science
-Philosophy, Filosofía, Philosophie
-Religion, Religión, Religion
+yes,si,oui
+hello,hola,bonjour
+goodbye,adios,au revoir
+thank you,gracias,merci
+no,no,non
+please,por favor,s'il vous plait
+sorry,lo siento,pardon
+love,amor,amour
+friend,amigo,ami
+family,familia,famille
+home,casa,maison
+food,comida,nourriture
+water,agua,eau
+book,libro,livre
+music,musica,musique
+time,tiempo,temps
+money,dinero,argent
+work,trabajo,travail
+travel,viajar,voyager
+education,educacion,education
+health,salud,sante
+happiness,felicidad,bonheur
+peace,paz,paix
+freedom,libertad,liberte
+justice,justicia,justice
+democracy,democracia,democratie
+climate,clima,climat
+technology,tecnologia,technologie
+nature,naturaleza,nature
+art,arte,art
+sport,deporte,sport
+fashion,moda,mode
+culture,cultura,culture
+language,idioma,langue
+history,historia,histoire
+science,ciencia,science
+philosophy,filosofia,philosophie
+religion,religion,religion

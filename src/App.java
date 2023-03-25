@@ -2,6 +2,7 @@ package src;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+
 import BinaryTree.Association;
 import BinaryTree.BinarySearchTree;
 
@@ -23,6 +24,8 @@ public class App {
         ArrayList<String> frenchToPrint = new ArrayList<>();
         ArrayList<String> spanishToPrint = new ArrayList<>();
         
+        String max = "";
+        
         try {
             dictionary = reader.Read("diccionario");
 
@@ -31,7 +34,7 @@ public class App {
         }
 
         for (String string : dictionary) {
-            String[] sentenceWords = string.split(",");
+            String[] sentenceWords = string.toLowerCase().split(",");
 
             englishToPrint.add(sentenceWords[0]);
             spanishToPrint.add(sentenceWords[1]);
@@ -50,7 +53,7 @@ public class App {
             translation = reader.Read(translationFile);
 
             for (String string : translation) {
-                String[] wordStrings = string.split(" ");
+                String[] wordStrings = string.toLowerCase().split(" ");
 
                 int spanish = 0;
                 int english = 0;
@@ -58,23 +61,23 @@ public class App {
     
                 for (String word : wordStrings) {
 
-                    if (englishToPrint.contains(word)) {
+                    if (englishToPrint.contains(word.toLowerCase())) {
                         english ++;
 
-                    } if (spanishToPrint.contains(word)) {
+                    } else if (spanishToPrint.contains(word.toLowerCase())) {
                         spanish ++;
 
-                    } if (frenchToPrint.contains(word)) {
+                    } else if (frenchToPrint.contains(word.toLowerCase())) {
                         french ++;
                     }
                 }
 
-                String max = "";
-
                 if (english >= spanish && english >= french) {
                     max = "Inglés";
+
                 } else if (spanish >= english && spanish >= french) {
                     max = "Español";
+
                 } else if (french >= english && french >= spanish) {
                     max = "Francés";
                 }
@@ -82,29 +85,227 @@ public class App {
                 System.out.println("Idioma detectado: " + max + "\n");
             }
 
-
         } catch (Exception e) {
             System.out.println("Ingresa un nombre de archivo '.txt' válido.");
             inputScanner.close();
             return;
         }
 
-        for (String string : translation) {
-            String traduced = "";
-            String[] word = string.split(" ");
+        switch(max) {
+            case "Inglés":
 
-            for (String string2 : word) {
-                String traduction = englishBinarySearchTree.search(string);
+                System.out.println("¿A qué idioma deseas traducir la oración?");
+                System.out.println("1. Español.");
+                System.out.println("2. Francés." + "\n");
+    
+                System.out.print("Tu elección: ");
+                int langSelection = inputScanner.nextInt();
+                
+                switch(langSelection) {
+                    case 1:
 
-                if (traduction == null) {
-                    traduced  = traduced + "*" + string2 + "* ";
+                    for (String string : dictionary) {
+                        String[] words = string.split(",");
 
-                } else {
-                    traduced = traduced + traduction + " ";
+                        spanishBinarySearchTree.insert(words[0], words[1]);
+                    }
+
+                    for (String string : translation) {
+                        String translateString = "";
+
+                        String[] words = string.split(" ");
+
+                        for (String string2 : words) {
+                            String replacementString = spanishBinarySearchTree.search(string2);
+
+                            if(replacementString == null) {
+                                translateString = translateString + "*" + string2 + "* ";
+
+                            } else {
+                                translateString = translateString + replacementString + " ";
+
+                            }
+                        }
+
+                        System.out.println(translateString);
+                    }
+
+                    break;
+        
+                    case 2:
+
+                    for (String string : dictionary) {
+                        String[] words = string.split(",");
+
+                        frenchBinarySearchTree.insert(words[0], words[2]);
+                    }
+
+                    for (String string : translation) {
+                        String translateString = "";
+
+                        String[] words = string.split(" ");
+
+                        for (String string2 : words) {
+                            String replacementString = frenchBinarySearchTree.search(string2);
+
+                            if(replacementString == null) {
+                                translateString = translateString + "*" + string2 + "* ";
+
+                            } else {
+                                translateString = translateString + replacementString + " ";
+
+                            }
+                        }
+
+                        System.out.println(translateString);
+                    }
+        
                 }
-            }
 
-            System.out.println(traduced);
+            break;
+
+            case "Español":
+
+                System.out.println("¿A qué idioma deseas traducir la oración?");
+                System.out.println("1. Inglés.");
+                System.out.println("2. Francés." + "\n");
+
+                System.out.print("Tu elección: ");
+                int langSelection2 = inputScanner.nextInt();
+            
+                switch(langSelection2) {
+                    case 1:
+
+                    for (String string : dictionary) {
+                        String[] words = string.split(",");
+
+                        englishBinarySearchTree.insert(words[1], words[0]);
+                    }
+
+                    for (String string : translation) {
+                        String translateString = "";
+
+                        String[] words = string.split(" ");
+
+                        for (String string2 : words) {
+                            String replacementString = englishBinarySearchTree.search(string2);
+
+                            if(replacementString == null) {
+                                translateString = translateString + "*" + string2 + "* ";
+
+                            } else {
+                                translateString = translateString + replacementString + " ";
+
+                            }
+                        }
+
+                        System.out.println(translateString);
+                    }
+
+                    break;
+    
+                    case 2:
+
+                    for (String string : dictionary) {
+                        String[] words = string.split(",");
+
+                        frenchBinarySearchTree.insert(words[1], words[2]);
+                    }
+
+                    for (String string : translation) {
+                        String translateString = "";
+
+                        String[] words = string.split(" ");
+
+                        for (String string2 : words) {
+                            String replacementString = frenchBinarySearchTree.search(string2);
+
+                            if(replacementString == null) {
+                                translateString = translateString + "*" + string2 + "* ";
+
+                            } else {
+                                translateString = translateString + replacementString + " ";
+
+                            }
+                        }
+
+                        System.out.println(translateString);
+                    }
+    
+                }
+
+                break;
+
+            case "Francés":
+                System.out.println("¿A qué idioma deseas traducir la oración?");
+                System.out.println("1. Español.");
+                System.out.println("2. Inglés." + "\n");
+
+                System.out.print("Tu elección: ");
+                int langSelection3 = inputScanner.nextInt();
+        
+                switch(langSelection3) {
+                    case 1:
+
+                    for (String string : dictionary) {
+                        String[] words = string.split(",");
+
+                        frenchBinarySearchTree.insert(words[2], words[1]);
+                    }
+
+                    for (String string : translation) {
+                        String translateString = "";
+
+                        String[] words = string.split(" ");
+
+                        for (String string2 : words) {
+                            String replacementString = frenchBinarySearchTree.search(string2);
+
+                            if(replacementString == null) {
+                                translateString = translateString + "*" + string2 + "* ";
+
+                            } else {
+                                translateString = translateString + replacementString + " ";
+
+                            }
+                        }
+
+                        System.out.println(translateString);
+                    }
+
+                    break;
+
+                    case 2:
+
+                    for (String string : dictionary) {
+                        String[] words = string.split(",");
+
+                        frenchBinarySearchTree.insert(words[2], words[0]);
+                    }
+
+                    for (String string : translation) {
+                        String translateString = "";
+
+                        String[] words = string.split(" ");
+
+                        for (String string2 : words) {
+                            String replacementString = frenchBinarySearchTree.search(string2);
+
+                            if(replacementString == null) {
+                                translateString = translateString + "*" + string2 + "* ";
+
+                            } else {
+                                translateString = translateString + replacementString + " ";
+
+                            }
+                        }
+
+                        System.out.println(translateString);
+                    }
+
+                }
+
+                break;
         }
 
         inputScanner.close();
