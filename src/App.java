@@ -26,6 +26,7 @@ public class App {
         
         String max = "";
         
+        // Reading the dictionary file and adding the words to the respective ArrayList.
         try {
             dictionary = reader.Read("diccionario");
 
@@ -49,6 +50,10 @@ public class App {
 
         System.out.println("La oración a traducir es: " + reader.Read(translationFile) + "\n");
 
+        // The above code is reading a file and then checking if the words in the file are in the list
+        // of words in the language. If the word is in the list, it adds one to the counter for that
+        // language. Then it checks which language has the most words in the file and prints out the
+        // language.
         try {
             translation = reader.Read(translationFile);
 
@@ -91,6 +96,8 @@ public class App {
             return;
         }
 
+        // The above code is a switch statement that is used to determine which language the user wants
+        // to translate from and to.
         switch(max) {
             case "Inglés":
 
