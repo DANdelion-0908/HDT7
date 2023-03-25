@@ -5,10 +5,8 @@ woman,mujer,femme
 town,pueblo,ville
 yes,si,oui
 hello,hola,bonjour
-goodbye,adios,au revoir
 thank you,gracias,merci
 no,no,non
-please,por favor,s'il vous plait
 sorry,lo siento,pardon
 love,amor,amour
 friend,amigo,ami

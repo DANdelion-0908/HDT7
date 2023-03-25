@@ -105,7 +105,7 @@ public class App {
                     case 1:
 
                     for (String string : dictionary) {
-                        String[] words = string.split(",");
+                        String[] words = string.toLowerCase().split(",");
 
                         spanishBinarySearchTree.insert(words[0], words[1]);
                     }
@@ -113,7 +113,7 @@ public class App {
                     for (String string : translation) {
                         String translateString = "";
 
-                        String[] words = string.split(" ");
+                        String[] words = string.toLowerCase().split(" ");
 
                         for (String string2 : words) {
                             String replacementString = spanishBinarySearchTree.search(string2);
@@ -135,7 +135,7 @@ public class App {
                     case 2:
 
                     for (String string : dictionary) {
-                        String[] words = string.split(",");
+                        String[] words = string.toLowerCase().split(",");
 
                         frenchBinarySearchTree.insert(words[0], words[2]);
                     }
@@ -143,7 +143,7 @@ public class App {
                     for (String string : translation) {
                         String translateString = "";
 
-                        String[] words = string.split(" ");
+                        String[] words = string.toLowerCase().split(" ");
 
                         for (String string2 : words) {
                             String replacementString = frenchBinarySearchTree.search(string2);
@@ -177,7 +177,7 @@ public class App {
                     case 1:
 
                     for (String string : dictionary) {
-                        String[] words = string.split(",");
+                        String[] words = string.toLowerCase().split(",");
 
                         englishBinarySearchTree.insert(words[1], words[0]);
                     }
@@ -185,7 +185,7 @@ public class App {
                     for (String string : translation) {
                         String translateString = "";
 
-                        String[] words = string.split(" ");
+                        String[] words = string.toLowerCase().split(" ");
 
                         for (String string2 : words) {
                             String replacementString = englishBinarySearchTree.search(string2);
@@ -207,7 +207,7 @@ public class App {
                     case 2:
 
                     for (String string : dictionary) {
-                        String[] words = string.split(",");
+                        String[] words = string.toLowerCase().split(",");
 
                         frenchBinarySearchTree.insert(words[1], words[2]);
                     }
@@ -215,7 +215,7 @@ public class App {
                     for (String string : translation) {
                         String translateString = "";
 
-                        String[] words = string.split(" ");
+                        String[] words = string.toLowerCase().split(" ");
 
                         for (String string2 : words) {
                             String replacementString = frenchBinarySearchTree.search(string2);
@@ -248,7 +248,7 @@ public class App {
                     case 1:
 
                     for (String string : dictionary) {
-                        String[] words = string.split(",");
+                        String[] words = string.toLowerCase().split(",");
 
                         frenchBinarySearchTree.insert(words[2], words[1]);
                     }
@@ -256,7 +256,7 @@ public class App {
                     for (String string : translation) {
                         String translateString = "";
 
-                        String[] words = string.split(" ");
+                        String[] words = string.toLowerCase().split(" ");
 
                         for (String string2 : words) {
                             String replacementString = frenchBinarySearchTree.search(string2);
@@ -278,7 +278,7 @@ public class App {
                     case 2:
 
                     for (String string : dictionary) {
-                        String[] words = string.split(",");
+                        String[] words = string.toLowerCase().split(",");
 
                         frenchBinarySearchTree.insert(words[2], words[0]);
                     }
@@ -286,7 +286,7 @@ public class App {
                     for (String string : translation) {
                         String translateString = "";
 
-                        String[] words = string.split(" ");
+                        String[] words = string.toLowerCase().split(" ");
 
                         for (String string2 : words) {
                             String replacementString = frenchBinarySearchTree.search(string2);
@@ -300,6 +300,7 @@ public class App {
                             }
                         }
 
+                        System.out.println("");
                         System.out.println(translateString);
                     }
 
